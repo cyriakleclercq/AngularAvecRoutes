@@ -1,0 +1,6 @@
+<ul>
+    <li *ngFor="let item of tableau">
+        <span> {{ item.message }} </span>
+        <button (click)='suppr(item)'>X</button>
+    </li>
+</ul>

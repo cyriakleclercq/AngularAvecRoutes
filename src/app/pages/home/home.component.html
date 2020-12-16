@@ -1,0 +1,5 @@
+<p>home works!</p>
+
+<input type="text" #nom (keydown.enter)="push(nom.value); clear(nom)">
+
+<app-enfant [tableau]="tab" (deenfant)="getOutput($event)" (supp)="getNewTab($event)"></app-enfant>
