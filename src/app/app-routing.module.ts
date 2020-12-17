@@ -6,10 +6,12 @@ import { UpdateComponent } from './components/update/update.component';
 import { HomeComponent } from './pages/home/home.component';
 import { UserComponent } from './pages/user/user.component';
 import { UsersComponent } from './pages/users/users.component';
+import { TodolistComponent } from './todolist/todolist/todolist.component';
 
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
+  { path: "todo", component: TodolistComponent },
   {
     path: "users", component: UsersComponent,
     children: [

@@ -1,0 +1,5 @@
+<p>todolist works!</p>
+
+<app-view [tableau]="todolist" (deleteTodo)="delete($event)" (updtateTodo)="update($event)"></app-view>
+
+<app-add (newTodo)="add($event)"></app-add>
