@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TodolistService } from '../services/todolist.service';
 
 @Component({
@@ -6,17 +6,23 @@ import { TodolistService } from '../services/todolist.service';
   templateUrl: './todolist.component.html',
   styleUrls: ['./todolist.component.css']
 })
-export class TodolistComponent implements OnInit {
+export class TodolistComponent implements OnInit, OnDestroy {
 
   todolist: Array<{ id: number, task: string }> = [];
+  a: any;
+  message: any
   constructor(private todoservice: TodolistService) { }
 
   ngOnInit() {
     this.getTodoList();
   }
 
+  ngOnDestroy() {
+    this.a.unsubscribe();
+  }
+
   getTodoList = () => {
-    this.todoservice.getTodo().subscribe(data => {
+    this.a = this.todoservice.getTodo().subscribe(data => {
       this.todolist = data; console.log(data);
     });
   }
@@ -38,4 +44,6 @@ export class TodolistComponent implements OnInit {
     this.todoservice.update(todo).subscribe(data => console.log(data));
     this.getTodoList();
   }
+
+
 }

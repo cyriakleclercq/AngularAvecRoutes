@@ -26,4 +26,5 @@ export class TodolistService {
   delete(id: number) {
     return this.http.delete(`${environment.uri}/${id}`)
   }
+
 }
